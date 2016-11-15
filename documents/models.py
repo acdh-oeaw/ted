@@ -46,7 +46,7 @@ class Document(models.Model):
     document_id = models.URLField(blank=True)
     document_filename = models.CharField(max_length=300, blank=True)
     document_name = models.CharField(max_length=300, blank=True)
-    doucment_type = models.ForeignKey(SkosConcept, blank=True, null=True)
+    document_type = models.ForeignKey(SkosConcept, blank=True, null=True)
     areal = models.ForeignKey(Areal, null=True, blank=True)
     planquadrat = models.ForeignKey(Planquadrat, blank=True, null=True)
     planum = models.ForeignKey(Planum, blank=True, null=True)

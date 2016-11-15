@@ -6,9 +6,9 @@ from documents.models import Document
 class DocumentTable(tables.Table):
     document_id = tables.LinkColumn(
         'documents:document_detail', args=[A('pk')], verbose_name='URI')
-    doucment_type = tables.Column(verbose_name='Document Type')
+    document_type = tables.Column(verbose_name='Document Type')
 
     class Meta:
         model = Document
-        fields = ['document_id', 'doucment_type']
+        fields = ['document_id', 'document_type']
         attrs = {"class": "table table-hover table-striped table-condensed"}
