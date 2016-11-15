@@ -3,39 +3,54 @@ from vocabs.models import SkosConcept
 
 
 class Areal(models.Model):
-    name = models.CharField(max_length=300)
+    name = models.CharField(max_length=300, blank=True)
+
+    def __str__(self):
+        return "{}".format(self.name)
 
 
 class Planquadrat(models.Model):
-    name = models.CharField(max_length=300)
+    name = models.CharField(max_length=300, blank=True)
+
+    def __str__(self):
+        return "{}".format(self.name)
 
 
 class Planum(models.Model):
-    name = models.CharField(max_length=300)
+    name = models.CharField(max_length=300, blank=True)
+
+    def __str__(self):
+        return "{}".format(self.name)
 
 
 class ArchObject(models.Model):
-    title = models.CharField(max_length=300)
-    object_type = models.ForeignKey(SkosConcept)
+    title = models.CharField(max_length=300, blank=True)
+    object_type = models.ForeignKey(SkosConcept, blank=True)
+
+    def __str__(self):
+        return "{} ({})".format(self.title, self.object_type)
 
 
 class DigObject(models.Model):
-    title = models.CharField(max_length=300)
-    object_type = models.ForeignKey(SkosConcept)
+    title = models.CharField(max_length=300, blank=True)
+    object_type = models.ForeignKey(SkosConcept, blank=True)
+
+    def __str__(self):
+        return "{} ({})".format(self.title, self.object_type)
 
 
 class Document(models.Model):
 
     """Holds information about documents. (cidoc:E31)"""
-    document_id = models.URLField(unique=True)
-    document_filename = models.CharField(max_length=300, unique=True)
-    document_name = models.CharField(max_length=300, unique=True)
-    doucment_type = models.ForeignKey(SkosConcept)
-    areal = models.ForeignKey(Areal)
-    planquadrat = models.ForeignKey(Planquadrat)
-    planum = models.ForeignKey(Planum)
+    document_id = models.URLField(blank=True)
+    document_filename = models.CharField(max_length=300, blank=True)
+    document_name = models.CharField(max_length=300, blank=True)
+    doucment_type = models.ForeignKey(SkosConcept, blank=True, null=True)
+    areal = models.ForeignKey(Areal, null=True, blank=True)
+    planquadrat = models.ForeignKey(Planquadrat, blank=True, null=True)
+    planum = models.ForeignKey(Planum, blank=True, null=True)
     archobject = models.ManyToManyField(ArchObject, blank=True)
-    DigObject = models.ManyToManyField(DigObject, blank=True)
+    digobject = models.ManyToManyField(DigObject, blank=True)
 
     def __str__(self):
         return "{}".format(self.document_id)
