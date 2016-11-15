@@ -31,10 +31,12 @@ INSTALLED_APPS = [
     'django_spaghetti',
     'django_extensions',
     'django_filters',
+    'django_tables2',
     'rest_framework',
     'webpage',
     'vocabs',
     'documents',
+    'browsing',
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
