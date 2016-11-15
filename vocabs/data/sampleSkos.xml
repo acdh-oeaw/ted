@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/">
+    
+<rdf:Description rdf:about="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/60303">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="de">Ergänzung bei Neuaufl.</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/JapBibThesaurus"/>
+    <skos:broader rdf:resource="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/63"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/63">
+    <skos:narrower rdf:resource="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/60303"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/60304">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="de">Ausschluß bei Neuaufl.</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/JapBibThesaurus"/>
+    <skos:broader rdf:resource="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/63"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/63">
+    <skos:narrower rdf:resource="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/60304"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/60305">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="de">79 und früher</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/JapBibThesaurus"/>
+    <skos:broader rdf:resource="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/63"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/63">
+    <skos:narrower rdf:resource="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/60305"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/60306">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="de">8087</skos:prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/6030601">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel xml:lang="de">8386-übernahme</skos:prefLabel>
+    <skos:inScheme rdf:resource="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/JapBibThesaurus"/>
+    <skos:broader rdf:resource="https://acdh.oeaw.ac.at/vocabs/japbibthesaurus/60306"/>
+</rdf:Description>
+    
+</rdf:RDF>
+
