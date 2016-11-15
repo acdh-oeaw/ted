@@ -52,7 +52,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% projects_metadata 'title' %}
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home
                   <span class="caret"/>
                   </a>
                   <ul class="dropdown-menu">
@@ -78,28 +78,43 @@
                   </ul>
                 </li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vocabs Curation
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analyze the Data
                   <span class="caret"/>
                   </a>
                   <ul class="dropdown-menu">
                     <li>
-                        <a href="{% url 'vocabs:skosconceptscheme_list' %}">Concept Schemes</a>
+                        <a href="{% url 'charts:bar_charts' %}">Bar Charts</a>
                     </li>
                     <li>
-                        <a href="{% url 'vocabs:skosconcept_list' %}">Concepts</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'vocabs:skoslabel_list' %}">Labels</a>
-                    </li>
-                    <li role="separator" class="divider"></li>
-                    <li>
-                        <a href="{% url 'vocabs:skos_import' %}">Import SKOS (RDF/XML)</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'api-root' %}">Export SKOS (API)</a>
+                        <a href="{% url 'charts:pie_charts' %}">Pie Charts</a>
                     </li>
                   </ul>
                 </li>
+                {% if user.is_authenticated %}
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vocabs Curation
+                    <span class="caret"/>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                          <a href="{% url 'vocabs:skosconceptscheme_list' %}">Concept Schemes</a>
+                      </li>
+                      <li>
+                          <a href="{% url 'vocabs:skosconcept_list' %}">Concepts</a>
+                      </li>
+                      <li>
+                          <a href="{% url 'vocabs:skoslabel_list' %}">Labels</a>
+                      </li>
+                      <li role="separator" class="divider"></li>
+                      <li>
+                          <a href="{% url 'vocabs:skos_import' %}">Import SKOS (RDF/XML)</a>
+                      </li>
+                      <li>
+                          <a href="{% url 'api-root' %}">Export SKOS (API)</a>
+                      </li>
+                    </ul>
+                  </li>
+                  {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown">
@@ -174,7 +189,7 @@
         $(function (){
           var options = {
             twitter: {
-              text: '19th century Austrian Administration, Huiiiiiii',
+              text: '',
               via: ''
             },
             facebook : true,

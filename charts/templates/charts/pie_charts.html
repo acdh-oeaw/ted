@@ -1,0 +1,145 @@
+{% extends "webpage/base.html" %}
+{% load staticfiles %}
+{% block Titel %}some charts{% endblock %}
+
+{% block scriptHeader %}
+    <!--highcharts -->
+        <script src="{% static 'charts/highcharts/highcharts.js' %}"></script>
+        <script src="{% static 'charts/highcharts/exporting.js' %}"></script>
+        <script src="{% static 'charts/highcharts/highcharts-3d.js' %}"></script>
+    <!--highcharts END -->
+    <!-- history.js -->
+        <script src="{% static 'charts/historyjs/jquery.history.js' %}"></script>
+    <!-- history.js END-->
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="panel panel-default" style="text-align:center">
+        <div class="panel-heading"><h1 >Please - make a selection</h1><br/>
+            <select id="chartselector" class="form-control">
+                    <option value="---">---</option>
+                    <option value="{% url 'charts:documenttype_json' %}">Document Types</option>
+
+            </select>
+        </div>
+        <div class="panel-body">
+            <div id="donut"/>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var fetched_url = History.getState().url;
+            var fetched_param = fetched_url.substr(fetched_url.indexOf("=") + 1)
+            console.log(fetched_param);
+            $.getJSON( fetched_param, function( data ) {
+                $('html, body').css("cursor", "default");        
+                var items = (data.payload).slice(1, data.payload.items);
+                var measuredObject = data.measuredObject
+                var header = data.title;
+                $("h1").text(data.title);
+                console.log(items);
+                    $('#donut').highcharts({
+                        chart: {
+                            
+                            type: 'pie',
+                            options3d: {
+                                enabled: true,
+                                alpha: 45
+                            }
+                        },
+                        title: {
+                        text: ""
+                        },
+                        subtitle: {
+                            text: data.subtitle
+                        },
+                        plotOptions: {
+                            pie: {
+                                innerSize: 50,
+                                depth: 40
+                            }
+                        },
+                        series: [{
+                            name: measuredObject,
+                            data:data.payload
+                        }]
+                    });
+                });
+            });
+    </script>
+    <script type="text/javascript">
+        $("#chartselector").change(function(){
+            var chart_label = $("#chartselector option:selected").text();
+            var which_chart = $("#chartselector option:selected").val();
+            var url_param = "?chart="+which_chart
+            History.pushState({chart:url_param}, chart_label, url_param);
+            console.log(which_chart);
+            $.getJSON( which_chart, function( data ) {
+                $('html, body').css("cursor", "default");        
+                var items = (data.payload).slice(1, data.payload.items);
+                var measuredObject = data.measuredObject
+                var header = data.title;
+                $("h1").text(data.title);
+                console.log(items);
+                    $('#donut').highcharts({
+                        chart: {
+                            
+                            type: 'pie',
+                            options3d: {
+                                enabled: true,
+                                alpha: 45
+                            }
+                        },
+                        title: {
+                        text: ""
+                        },
+                        subtitle: {
+                            text: data.subtitle
+                        },
+                        plotOptions: {
+                            pie: {
+                                innerSize: 50,
+                                depth: 40
+                            }
+                        },
+                        series: [{
+                            name: measuredObject,
+                            data:data.payload
+                        }]
+                    });
+            });
+        });
+    </script>
+    <script type="text/javascript" src="{% static 'webpage/libraries/bootstrap335/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'webpage/libraries/bootstrap335/js/bootstrap-tab.js' %}"></script>
+    <!-- scroll-up-bottom -->        
+    <script type="text/javascript">
+            // Setup plugin with default settings
+            $(document).ready(function() {
+                $.apScrollTop({
+                    'onInit': function(evt) {
+                        console.log('apScrollTop: init');
+                    }
+                });
+            });
+    </script>    
+    <script type="text/javascript">
+        $(function (){
+          var options = {
+            twitter: {
+              text: '',
+              via: ''
+            },
+            facebook : true,
+            googlePlus : true
+          };
+          $('.socialShare').shareButtons(options);
+        });
+      </script>
+{% endblock %}
+
