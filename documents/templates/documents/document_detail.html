@@ -1,0 +1,57 @@
+{% extends "webpage/base.html" %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading" style="text-align: center;">
+            <h3>Detail view of</h3>
+            <h1>{{ object }}</h1>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Document Type</td>
+                    <td>{{ object.doucment_type }}</td>
+                </tr>
+                    <td>Document Name</td>
+                    <td>{{ object.document_name }}</td>
+                </tr>
+                <tr>
+                    <td>Filename</td>
+                    <td>{{ object.document_filename }}.tif</td>
+                </tr>
+                <tr>
+                    <td>
+                        Areal | Planquadrat | Planum
+                    </td>
+                    <td>
+                        {{ object.areal }} | {{ object.planquadrat }} | {{ object.planum }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        related Archeological Objects
+                    </td>
+                    <td>
+                        {% for x in object.archobject.all %}
+                            {{ x }}<br/>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        related Grabungs Objects
+                    </td>
+                    <td>
+                        {% for x in object.digobject.all %}
+                            {{ x }}<br/>
+                        {% endfor %}
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+        <div class="panel-footer"></div>
+    </div>
+
+{% endblock %}

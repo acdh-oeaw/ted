@@ -18,5 +18,6 @@ urlpatterns = [
     url(r'^', include('webpage.urls', namespace='webpage')),
     url(r'^vocabs/', include('vocabs.urls', namespace='vocabs')),
     url(r'^datamodel/', include('django_spaghetti.urls', namespace='datamodel')),
+    url(r'documents/', include('documents.urls', namespace='documents')),
     url(r'browsing/', include('browsing.urls', namespace='browsing')),
 ]

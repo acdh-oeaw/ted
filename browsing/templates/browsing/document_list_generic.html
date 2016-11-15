@@ -2,14 +2,14 @@
 {% block Titel %}Browse Documents{% endblock %}
 {% block list_title %}Browse Documents
  {% if user.is_authenticated %}
-        | <a class ="btn btn-success"  href="#">Create new Document</a>
+      <!--   | <a class ="btn btn-success"  href="#">Create new Document</a> -->
     {% endif %}
 {% endblock %}
 
 {% block reset_button %}
 <!-- <a class ="btn btn-default"  id="01">Show/Hide Advanced search options</a></br>
- <p></p>
- <a class ="btn btn-default"  href="{% url 'browsing:browse_documents' %}">Reset search</a>      -->
+ <p></p> -->
+ <a class ="btn btn-default"  href="{% url 'browsing:browse_documents' %}">Reset search</a>     
 {% endblock %}
 
 {% block customScripts %}
