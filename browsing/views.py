@@ -1,7 +1,7 @@
 from django_tables2 import SingleTableView, RequestConfig
-from documents.models import Document
-from .filters import DocumentListFilter
-from .tables import DocumentTable
+from documents.models import Document, ArchObject, DigObject
+from .filters import DocumentListFilter, ArchObjectListFilter, DigObjectListFilter
+from .tables import DocumentTable, ArchObjectTable, DigObjectTable
 from .forms import GenericFilterFormHelper
 
 
@@ -34,4 +34,20 @@ class DocumentListView(GenericListView):
     table_class = DocumentTable
     template_name = 'browsing/document_list_generic.html'
     filter_class = DocumentListFilter
+    formhelper_class = GenericFilterFormHelper
+
+
+class ArchObjectListView(GenericListView):
+    model = ArchObject
+    table_class = ArchObjectTable
+    template_name = 'browsing/archobject_list_generic.html'
+    filter_class = ArchObjectListFilter
+    formhelper_class = GenericFilterFormHelper
+
+
+class DigObjectListView(GenericListView):
+    model = DigObject
+    table_class = DigObjectTable
+    template_name = 'browsing/digobject_list_generic.html'
+    filter_class = DigObjectListFilter
     formhelper_class = GenericFilterFormHelper

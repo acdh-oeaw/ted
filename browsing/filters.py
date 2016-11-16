@@ -1,5 +1,5 @@
 import django_filters
-from documents.models import Document
+from documents.models import Document, ArchObject, DigObject
 
 
 django_filters.filters.LOOKUP_TYPES = [
@@ -24,3 +24,15 @@ class DocumentListFilter(django_filters.FilterSet):
 
     class Meta:
         model = Document
+
+
+class ArchObjectListFilter(django_filters.FilterSet):
+
+    class Meta:
+        model = ArchObject
+
+
+class DigObjectListFilter(django_filters.FilterSet):
+
+    class Meta:
+        model = DigObject

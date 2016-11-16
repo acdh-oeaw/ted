@@ -1,0 +1,33 @@
+{% extends "webpage/base.html" %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading" style="text-align: center;">
+            <h3>Detail view of</h3>
+            <h1>{{ object }}</h1>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Type</td>
+                    <td>{{ object.object_type }}</td>
+                </tr>
+                    <td>Object Name</td>
+                    <td>{{ object.title }}</td>
+                </tr>
+                <tr>
+                    <td>Related Documents</td>
+                    <td>
+                        {% for x in documents %}
+                            <a href="{% url 'documents:document_detail' pk=x.id %}">{{ x.document_name }}</a> ({{ x.document_type }})<br/>
+                        {% endfor %}
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+        <div class="panel-footer"></div>
+    </div>
+
+{% endblock %}

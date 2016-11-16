@@ -31,6 +31,9 @@ class ArchObject(models.Model):
     def __str__(self):
         return "{} ({})".format(self.title, self.object_type)
 
+    def get_absolute_url(self):
+        return reverse('documents:archobject_detail', kwargs={'pk': self.id})
+
 
 class DigObject(models.Model):
     title = models.CharField(max_length=300, blank=True)
@@ -38,6 +41,9 @@ class DigObject(models.Model):
 
     def __str__(self):
         return "{} ({})".format(self.title, self.object_type)
+
+    def get_absolute_url(self):
+        return reverse('documents:digobject_detail', kwargs={'pk': self.id})
 
 
 class Document(models.Model):
