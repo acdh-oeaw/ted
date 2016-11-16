@@ -34,7 +34,7 @@
                     </td>
                     <td>
                         {% for x in object.archobject.all %}
-                            {{ x }}<br/>
+                            <a href="{% url 'documents:archobject_detail' pk=x.id %}">{{ x }}</a><br/>
                         {% endfor %}
                     </td>
                 </tr>
@@ -44,7 +44,7 @@
                     </td>
                     <td>
                         {% for x in object.digobject.all %}
-                            {{ x }}<br/>
+                            <a href="{% url 'documents:digobject_detail' pk=x.id %}">{{ x }}</a><br/>
                         {% endfor %}
                     </td>
                 </tr>
